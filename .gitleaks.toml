@@ -1,0 +1,11 @@
+title = "DevSecOps Lab Secret Detection"
+
+[extend]
+useDefault = true
+
+[[rules]]
+id = "lab-aws-credentials"
+description = "Hardcoded AWS credentials in config.py"
+regex = '''AWS_ACCESS_KEY_ID\s*=\s*"(AKIA[A-Z0-9]{16})"'''
+secretGroup = 1
+path = '''config\.py$'''
